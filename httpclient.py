@@ -99,7 +99,7 @@ class HTTPClient(object):
         # connect
         self.connect(host, port)
         # request
-        playload = f'GET {path} HTTP/1.1\r\nHost: {host}\r\nAccept: */*\r\nConnection: close\r\n\r\n'
+        playload = f'GET {path} HTTP/1.1\r\nHost: {host}\r\nUser-Agent: zihansu\r\nAccept: */*\r\nConnection: close\r\n\r\n'
         self.sendall(playload)
         #self.socket.shutdown(socket.SHUT_WR)
         # receive data
@@ -122,10 +122,10 @@ class HTTPClient(object):
         self.connect(host, port)
         # request
         if args == None:
-            request = f'POST {path} HTTP/1.1\r\nHost: {host}\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 0\r\n\r\n'
+            request = f'POST {path} HTTP/1.1\r\nHost: {host}\r\nUser-Agent: zihansu\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: 0\r\n\r\n'
         else:
             query = urllib.parse.urlencode(args)
-            request = f'POST {path} HTTP/1.1\r\nHost: {host}\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: {len(query)}\r\n\r\n{query}\r\n'
+            request = f'POST {path} HTTP/1.1\r\nHost: {host}\r\nUser-Agent: zihansu\r\nContent-Type: application/x-www-form-urlencoded\r\nContent-Length: {len(query)}\r\n\r\n{query}\r\n'
         self.sendall(request)
         # receive data
         data = self.recvall(self.socket)
