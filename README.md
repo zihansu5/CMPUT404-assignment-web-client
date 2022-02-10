@@ -22,6 +22,8 @@ References:
 
 https://docs.python.org/3/library/urllib.parse.html
 
+https://pythontect.com/how-to-encode-url-and-query-string-in-python/
+
 
 https://reqbin.com/req/nfilsyk5/get-request-example
 
